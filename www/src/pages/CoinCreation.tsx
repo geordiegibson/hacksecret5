@@ -21,12 +21,11 @@ const CoinCreation = () => {
 
     return (
         <>
-            <p className="font-bold text-2l text-gray-400">Let's make it happen</p>
-            <p className="font-bold text-4xl">🚀 Coin Creation</p>
+            <p className="mt-16 ml-24 geist font-bold text-gray-400">Lets make it happen</p>
+            <p className="text-4xl ml-24 geist font-bold">Coin Creation</p>
 
-            <div className="flex justify-center items-center w-full items-center h-[calc(100vh-125px)]">
+            <div className="flex justify-center items-center w-full items-center h-[calc(100vh-250px)]">
 
-                
                 <div className="flex flex-col p-10 space-y-4 rounded-xl bg-zinc-900 w-96">
 
                 <div className="flex justify-center w-full">
@@ -71,7 +70,7 @@ const CoinCreation = () => {
 
             </div>
 
-            <Menu page={"trade"} />
+            <Menu page={"create"} />
             
             
         </>
