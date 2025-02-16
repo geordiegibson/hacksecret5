@@ -18,7 +18,6 @@ const Collection = () => {
             <div className="mt-5">
                 <CollectionItem coinName={"Goon"} platforms={["instagram"]} target={50000} current={40000}/>
                 <CollectionItem coinName={"SUI"} platforms={[]} target={50000} current={25000}/>
-                <CollectionItem coinName={"GayNiggaCoin"} platforms={["twitter", "instagram"]} target={50000} current={15000}/>
                 <CollectionItem coinName={"Chur"} platforms={["tiktok", "twitter"]} target={50000} current={30000}/>
                 <CollectionItem coinName={"UpTheWahs"} platforms={["tiktok", "twitter", "instagram"]} target={50000} current={50000}/>
             </div>

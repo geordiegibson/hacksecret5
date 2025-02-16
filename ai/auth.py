@@ -3,9 +3,23 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from requests_oauthlib import OAuth1Session
 from database import databaseSetup, insertRequestInfo, insertAccessInfo, fetchAuthRequest, fetchAuthAccess
-
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 databaseSetup()
 
 
