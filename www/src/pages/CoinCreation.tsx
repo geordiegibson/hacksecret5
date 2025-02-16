@@ -21,8 +21,8 @@ const CoinCreation = () => {
 
     return (
         <>
-            <p className="mt-16 ml-24 geist font-bold text-gray-400">Lets make it happen</p>
-            <p className="text-4xl ml-24 geist font-bold">Coin Creation</p>
+            <p className="mt-16 geist font-bold text-gray-400">Lets make it happen</p>
+            <p className="text-4xl geist font-bold">Coin Creation</p>
 
             <div className="flex justify-center items-center w-full items-center h-[calc(100vh-250px)]">
 

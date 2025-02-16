@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 
 interface MenuProps {
-    page: "create" | "maintainance" | "wallet"
+    page: "create" | "collection" | "wallet"
 }
 
 const Menu = (props: MenuProps) => {
 
     return (
-        <div className="flex flex-col w-screen items-center justify-center">
+        <div className="flex flex-col w-full items-center justify-center">
 
             <nav className="fixed bottom-4 z-30 mx-auto flex w-max flex-row items-center justify-center gap-1 overflow-visible rounded-full p-1 shadow-lg ring-1 backdrop-blur-sm bg-zinc-900 ring-zinc-700/50">
 
@@ -21,8 +21,8 @@ const Menu = (props: MenuProps) => {
                     <svg className="h-4" fill={props.page === 'create' ? 'black' : 'white'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                 </Link>
 
-                <Link to="/maintainance" className={`${props.page === 'maintainance' ? "bg-white" : "hover:bg-slate-800"} group relative flex select-none items-center rounded-full p-3 outline-none transition-all duration-400`}>
-                <svg className="h-4" fill={props.page === 'maintainance' ? 'black' : 'white'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32l160 0c17.7 0 32 14.3 32 32l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-82.7L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160 384 160z"/></svg>                </Link>
+                <Link to="/collection" className={`${props.page === 'collection' ? "bg-white" : "hover:bg-slate-800"} group relative flex select-none items-center rounded-full p-3 outline-none transition-all duration-400`}>
+                <svg className="h-4" fill={props.page === 'collection' ? 'black' : 'white'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32l160 0c17.7 0 32 14.3 32 32l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-82.7L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160 384 160z"/></svg>                </Link>
 
                 <Link to="/wallet" className={`${props.page === 'wallet' ? "bg-white" : "hover:bg-slate-800"} group relative flex select items-center rounded-full p-3 outline-none transition-all duration-400`}>
                     <svg className="h-4" fill={props.page === 'wallet' ? 'black' : 'white'} viewBox="0 0 512 512"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L80 128c-8.8 0-16-7.2-16-16s7.2-16 16-16l368 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L64 32zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>

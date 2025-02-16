@@ -1,6 +1,5 @@
 import { useState } from "react"
 import Menu from "../components/Menu"
-import { Link } from "react-router-dom"
 
 const Marketing = () => {
 
@@ -11,8 +10,8 @@ const Marketing = () => {
 
     return (
         <>
-                <p className="mt-16 ml-24 geist font-bold text-gray-400">To the moon</p>
-                <p className="text-4xl ml-24 geist font-bold">Marketeting</p>
+                <p className="mt-16 geist font-bold text-gray-400">Select an Advertisement Platform</p>
+                <p className="text-4xl geist font-bold">Marketing</p>
                 
                 <div className="flex w-full gap-32 justify-center items-center h-[calc(100vh-300px)]">
 
@@ -43,10 +42,6 @@ const Marketing = () => {
 
                     {displayPlatform === "instagram" ? <h1>Instagram</h1> : ""}
                     
-                </div>
-
-                <div className="flex w-full justify-center">
-                    <Link className="bg-white p-2 text-black rounded-md" to="create">Next</Link>
                 </div>
         
             <Menu page={"create"}/>
