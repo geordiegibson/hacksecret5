@@ -1,6 +1,5 @@
 import { useState } from "react"
 import Menu from "../components/Menu"
-
 const Marketing = () => {
 
     const [displayPlatform, setDisplayPlatform] = useState("twitter")
@@ -43,6 +42,8 @@ const Marketing = () => {
                     {displayPlatform === "instagram" ? <h1>Instagram</h1> : ""}
                     
                 </div>
+
+                <button className="bg-white text-black w-32 rounded-md geist p-2">OAuth Test</button>
         
             <Menu page={"create"}/>
         </>        
