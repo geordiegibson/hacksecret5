@@ -4,6 +4,7 @@ import Marketing from './pages/Marketing'
 import Landing from './pages/Landing'
 import Collection from './pages/Collection'
 import Connect from './pages/Connect'
+import Summary from './pages/Summary'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                         <Route path="/create" element={<CoinCreation />}/>
                         <Route path="/marketing" element={<Marketing />}/>
                         <Route path="/connect" element={<Connect />}/>
+                        <Route path="/summary" element={<Summary />}/>
                         <Route path="/collection" element={<Collection />}/>
                         <Route path="*" element={<CoinCreation />}/>
                     </Routes>
