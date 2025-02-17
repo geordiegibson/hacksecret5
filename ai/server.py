@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from requests_oauthlib import OAuth1Session
 from database import databaseSetup, insertRequestInfo, insertAccessInfo, fetchAuthRequest, fetchAuthAccess
 from fastapi.middleware.cors import CORSMiddleware
+from scheduler import Scheduler
 
 app = FastAPI()
 
@@ -75,32 +76,8 @@ async def root(verifier):
 
 @app.get("/twitter/post")
 async def root():
-
-    load_dotenv()
-    consumer_key = os.environ.get("CONSUMER_KEY")
-    consumer_secret = os.environ.get("CONSUMER_SECRET")
-
-    access_token, access_secret = fetchAuthAccess(1)
-
-    oauth = OAuth1Session(
-        consumer_key,
-        client_secret=consumer_secret,
-        resource_owner_key=access_token,
-        resource_owner_secret=access_secret,
-    )
-
-    payload = {"text": "Feeling Silly today haha, might delete later"}
-
-    response = oauth.post(
-        "https://api.twitter.com/2/tweets",
-        json=payload,
-    )
-
-    if response.status_code != 201:
-        raise Exception(
-            "Request returned an error: {} {}".format(response.status_code, response.text)
-        )
-
+    scheduler = Scheduler()
+    scheduler.scheduleJob()
 
 @app.get("/health")
 async def root():
