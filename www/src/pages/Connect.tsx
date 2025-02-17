@@ -3,6 +3,7 @@ import CreationProgress from "../components/CreationProgress"
 import axios from 'axios'
 import Menu from "../components/Menu"
 import { Link } from "react-router-dom"
+import AvatarStack from "../components/AvatarStack"
 
 const Connect = () => {
 
@@ -39,34 +40,54 @@ const Connect = () => {
         await axios.get(`http://localhost:8000/oauth/access?verifier=${code}`)
     }
 
-    const handleTwitterPost = async () => {
-        await axios.get(`http://localhost:8000/twitter/post`)
-    }
-
     return (
         <>
             <CreationProgress page="connect" />
+            
+            <div className="flex justify-center items-center w-full items-center h-[calc(100vh-250px)]">
 
-            <div className="flex flex-col gap-5 justify-center items-center mt-48">
 
-                <p>In order to promote SillyCoin on Twitter, you need to log in.</p>
+            <div className="flex flex-col gap-5 justify-center w-196 items-center mt-8 rounded-md p-8 bg-zinc-900">
 
-                <button onClick={handleTwitterOAuthRequest} className="bg-white rounded-md text-black p-3 my-3">Connect to Twitter</button>
+                <AvatarStack />
 
-                <div className="flex gap-2">
-                    {codes.map((code, index) => (
-                        <input
-                            key={index}
-                            ref={(el) => {inputRefs.current[index] = el!}}
-                            className="bg-white h-16 w-16 rounded-xl bg-zinc-700 text-center text-xl"
-                            value={code}
-                            onChange={(e) => handleChange(index, e)}
-                            onKeyDown={(e) => handleKeyDown(index, e)}
-                        />
-                    ))}
+                <p className="geist">In order to promote SillyCoin on Twitter, you need to log in.</p>
+
+                <div className="flex flex-col justify-evenly w-full">
+
+                <div className="flex flex-col items-center justify-center bg-zinc-900 p-8 rounded-xl">
+
+                    <p className="geist">Step One: Log in to Twitter</p>
+                        <button onClick={handleTwitterOAuthRequest} className="bg-white rounded-md text-black p-3 my-3">Connect to Twitter</button>
+                    </div>
+
+                    <hr className="text-zinc-800"></hr>
+
+                    <div className="flex flex-col items-center bg-zinc-900 rounded-xl">
+                        <p className="geist font-3xl my-5">Step Two: Enter Pin</p>
+
+                        <div className="flex gap-2">
+                            {codes.map((code, index) => (
+                                <input
+                                    key={index}
+                                    ref={(el) => {inputRefs.current[index] = el!}}
+                                    className="bg-white h-16 w-16 rounded-xl bg-zinc-700 text-center text-xl"
+                                    value={code}
+                                    onChange={(e) => handleChange(index, e)}
+                                    onKeyDown={(e) => handleKeyDown(index, e)}
+                                />
+                            ))}
+                        </div>
+                        
+                        <button onClick={handleTwitterOAuthCodeSubmit} className="p-3 mt-3">Submit</button>
+                    </div>
+
                 </div>
-                    
-                    <button onClick={handleTwitterOAuthCodeSubmit} className="p-3 my-3">Submit</button>
+                
+
+                
+            </div>
+
             </div>
 
             <Link className="flex items-center justify-center bg-zinc-900 rounded-full h-16 w-16" to="/summary">

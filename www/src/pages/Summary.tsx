@@ -1,8 +1,15 @@
-import { Link } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import CreationProgress from "../components/CreationProgress"
 import Menu from "../components/Menu"
+import axios from 'axios'
 
 const Summary = () => {
+
+    const handleTwitterPost = async () => {
+        await axios.get(`http://localhost:8000/twitter/post`)
+        Navigate({to: "/collection"})
+    }
+
     return (
         <>
             <CreationProgress page="summary" />
@@ -38,7 +45,7 @@ const Summary = () => {
                         <p>Successfully connected to Twitter</p>
                     </div>
 
-                    <Link to="/collection" className="bg-white text-black rounded-md geist text-center p-3 mt-5">Create 🚀</Link>
+                    <button onClick={handleTwitterPost} className="bg-white text-black rounded-md geist text-center p-3 mt-5">Create 🚀</button>
 
                 </div>
 
