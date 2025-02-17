@@ -47,7 +47,7 @@ const Connect = () => {
             <div className="flex justify-center items-center w-full items-center h-[calc(100vh-250px)]">
 
 
-            <div className="flex flex-col gap-5 justify-center w-196 items-center mt-8 rounded-md p-8 bg-zinc-900">
+            <div className="flex flex-col gap-5 justify-center w-196 items-center mt-8 rounded-xl p-8 bg-zinc-900">
 
                 <AvatarStack />
 

@@ -1,11 +1,11 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
-import time
+import asyncio
 from dotenv import load_dotenv
 from requests_oauthlib import OAuth1Session
 from database import fetchAuthAccess
 import os
-import uuid
+from generation import Generation
 
 class Scheduler():
 
@@ -19,8 +19,14 @@ class Scheduler():
         else:
             self.scheduler = Scheduler._scheduler_instance
 
-    
+
     def post_to_twitter(self):
+        asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(self.async_post_to_twitter())
+    
+    async def async_post_to_twitter(self):
         print(f"Posting to Twitter at {datetime.now()}")
 
         load_dotenv()
@@ -36,9 +42,9 @@ class Scheduler():
             resource_owner_secret=access_secret,
         )
 
-        # TODO: Replace with AI Generated tweet content
-        random_id = uuid.uuid4()
-        payload = {"text": "Feeling Silly today haha, might delete later " + str(random_id)}
+        ai = Generation()
+        tweet = ai.generateTweet()
+        payload = {"text": tweet}
 
         response = oauth.post(
             "https://api.twitter.com/2/tweets",
@@ -57,4 +63,4 @@ class Scheduler():
         print(f"Posting to Tik Tok at {datetime.now()}")
 
     def scheduleJob(self):
-        self.scheduler.add_job(self.post_to_twitter, 'interval', minutes=0.1)
+        self.scheduler.add_job(self.post_to_twitter, 'interval', minutes=2)
